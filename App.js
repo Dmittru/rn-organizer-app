@@ -1,6 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { LoginPage } from './src/pages/LoginPage';
+import TripsPage from './src/pages/TripsPage';
+import PlacesPage from './src/pages/PlacesPage';
+import PackingPage from './src/pages/PackingPage';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -26,10 +29,18 @@ export default function App() {
             headerShown: false,
           }}
       />
-      {/* <Stack.Screen
-          name="UserDesc"
-          component={UserDesc}
-      /> */}
+      <Stack.Screen
+          name="Trips"
+          component={TripsPage}
+      />
+      <Stack.Screen
+          name="Places"
+          component={PlacesPage}
+      />
+      <Stack.Screen
+          name="Packing"
+          component={PackingPage}
+      />
     </Stack.Navigator>
   </NavigationContainer>);
 }
