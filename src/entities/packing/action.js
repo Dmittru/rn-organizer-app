@@ -59,7 +59,7 @@ export function logAllPacking() {
 export function UndoneItem(selectedItemId) {
     db.transaction(
         (tx) => {
-            tx.executeSql(`update items set done = 0 where id = ?;`, [
+            tx.executeSql(`update packing set done = 0 where id = ?;`, [
                 selectedItemId,
             ]);
         }
@@ -70,7 +70,7 @@ export function UndoneItem(selectedItemId) {
 export function doneItem(selectedItemId) {
     db.transaction(
         (tx) => {
-            tx.executeSql(`update items set done = 1 where id = ?;`, [selectedItemId]);
+            tx.executeSql(`update packing set done = 1 where id = ?;`, [selectedItemId]);
         }
     );
     logAllPacking()

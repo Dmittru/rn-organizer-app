@@ -9,9 +9,9 @@ import {
   Button,
   FlatList,
 } from "react-native";
-import { createOrSyncTablePacking, addPacking, fetchPacking, deletePacking, dropTablePacking, DoneItem, UndoneItem } from '../entities/packing/action';
+import { createOrSyncTablePacking, addPacking, fetchPacking, deletePacking, dropTablePacking, doneItem, UndoneItem } from '../entities/packing/action';
 import { NavBar } from "../components/NavBar";
-import CheckBox from '@react-native-community/checkbox';
+import CheckBox from 'react-native-check-box'
 
 const PackingPage = ({ route, navigation }) => {
   const { loggedInUser } = route.params;
@@ -33,6 +33,7 @@ const PackingPage = ({ route, navigation }) => {
   const handleAddPacking = () => {
     if (pack) {
       addPacking(pack, loggedInUser, () => {
+        loadPacking()
         setIsModalVisible(false);
         setPack("");
       });
@@ -46,15 +47,22 @@ const PackingPage = ({ route, navigation }) => {
   const handleItemPress = (id, done) => {
     if(done == "1") {
         UndoneItem(id)
+        loadPacking()
     } else {
-        DoneItem(id)
+        doneItem(id)
+        loadPacking()
     }
   };
 
   const renderItem = ({ item }) => (
     <View style={styles.tripItem}>
       <Text style={styles.tripText}>Вещь: {item.item}</Text>
-      <CheckBox value={item.done == "1" ? true : false} onChange={()=>handleItemPress(item.id, item.done)}/>
+      <CheckBox
+      style={{backgroundColor: 'gray'}}
+        onClick={()=>handleItemPress(item.id, item.done)}
+        isChecked={item.done == "1" ? true : false}
+        leftText="Взято: "
+      />
       <Button title="Удалить" onPress={() => handleDeletePacking(item.id)} />
     </View>
   );
