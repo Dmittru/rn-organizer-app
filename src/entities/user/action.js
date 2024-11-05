@@ -29,7 +29,7 @@ export function SignInOrUp(login, password, navigation) {
                 if (results.rows.length > 0) {
                     const user = results.rows.item(0);
                     if (user.password === password) {
-                        navigation.navigate('UserDesc', {loggedInUser: login}); //!replace
+                        navigation.navigate('Trips', {loggedInUser: login}); 
                     } else {
                         Alert.alert('Ошибка', 'Неправильный пароль, попробуйте снова');
                     }
@@ -41,7 +41,7 @@ export function SignInOrUp(login, password, navigation) {
                             (_, insertResults) => {
                                 if (insertResults.rowsAffected > 0) {
                                     Alert.alert('Успешно!', 'Пользователь зарегистрирован');
-                                    navigation.navigate('UserDesc', {loggedInUser: login}); //!replace
+                                    navigation.navigate('Trips', {loggedInUser: login}); 
                                 } else {
                                     Alert.alert('Ошибка', 'Не удалось зарегистрироваться');
                                 }
