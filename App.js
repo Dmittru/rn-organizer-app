@@ -5,6 +5,7 @@ import TripsPage from './src/pages/TripsPage';
 import PlacesPage from './src/pages/PlacesPage';
 import PackingPage from './src/pages/PackingPage';
 import GoalsPage from "./src/pages/GoalsPage";
+import RoutesPage from "./src/pages/RoutesPage";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -45,6 +46,10 @@ export default function App() {
         <Stack.Screen
           name="Goals"
           component={GoalsPage}
+      />
+        <Stack.Screen
+          name="Routes"
+          component={RoutesPage}
       />
     </Stack.Navigator>
   </NavigationContainer>);
