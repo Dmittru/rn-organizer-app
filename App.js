@@ -4,6 +4,7 @@ import { LoginPage } from './src/pages/LoginPage';
 import TripsPage from './src/pages/TripsPage';
 import PlacesPage from './src/pages/PlacesPage';
 import PackingPage from './src/pages/PackingPage';
+import GoalsPage from "./src/pages/GoalsPage";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -40,6 +41,10 @@ export default function App() {
       <Stack.Screen
           name="Packing"
           component={PackingPage}
+      />
+        <Stack.Screen
+          name="Goals"
+          component={GoalsPage}
       />
     </Stack.Navigator>
   </NavigationContainer>);
