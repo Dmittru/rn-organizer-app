@@ -13,6 +13,7 @@ export const NavBar=({navigation, loggedInUser})=> {
         <Button style={{height: 'auto'}} title="Достижения" onPressFunc={()=>navigation.navigate('Goals', {loggedInUser})}/>
         <Button style={{height: 'auto'}} title="Пути" onPressFunc={()=>navigation.navigate('Routes', {loggedInUser})}/>
         <Button style={{height: 'auto'}} title="Советы" onPressFunc={()=>navigation.navigate('Tips', {loggedInUser})}/>
+        <Button style={{height: 'auto'}} title="Статистика" onPressFunc={()=>navigation.navigate('Statistics', {loggedInUser})}/>
     </ScrollView>
     </View>
   )

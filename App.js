@@ -6,6 +6,8 @@ import PlacesPage from './src/pages/PlacesPage';
 import PackingPage from './src/pages/PackingPage';
 import GoalsPage from "./src/pages/GoalsPage";
 import RoutesPage from "./src/pages/RoutesPage";
+import TipsPage from "./src/pages/TipsPage";
+import StatisticsPage from "./src/pages/StatisticsPage";
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -50,6 +52,14 @@ export default function App() {
         <Stack.Screen
           name="Routes"
           component={RoutesPage}
+      />
+        <Stack.Screen
+          name="Tips"
+          component={TipsPage}
+      />
+        <Stack.Screen
+          name="Statistics"
+          component={StatisticsPage}
       />
     </Stack.Navigator>
   </NavigationContainer>);
